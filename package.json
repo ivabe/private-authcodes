@@ -1,0 +1,15 @@
+{
+    "type": "module",
+    "name": "zk-payment-card-verification",
+    "version": "1.0.0",
+    "description": "Designated Verifier from BabyJubJub & EDdDSA",
+    "author": "Ivan Abellan",
+    "license": "MIT",
+    "dependencies": {
+        "seedrandom": "^3.0.5",
+        "ffjavascript": "^0.3.1",
+        "circomlibjs": "^0.1.7",
+        "commander": "^12.1.0",
+        "snarkjs": "^0.7.5"
+    }
+}

@@ -1,0 +1,41 @@
+# circom files
+# *.r1cs
+*.sym
+*.wasm
+*.ptau
+# *.zkey
+*.wtns
+# vkey.json
+verification_key.json
+**/proof.json
+**/public*.json
+kex.json
+ukeys.json
+dvskeys.json
+
+
+# circom compiled files
+generate_witness.js
+witness_calculator.js
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+#MAC OS
+.DS_Store
+
+#.extra
+*.ignore
+*.cmd
+TODO.md

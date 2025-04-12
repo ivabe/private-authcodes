@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  zkpayment:
+    container_name: zkpayment-ver
+    build: .
+    volumes:
+      - ./:/app
+    working_dir: /app
+    tty: true
