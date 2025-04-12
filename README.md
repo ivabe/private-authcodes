@@ -40,3 +40,6 @@ node app/app.js -kex app/target_pubk.json
 # Designated_Verifier:
 node app/app.js -kexf app/target_sk.json kex.json
 ```
+
+# Submission
+Code submitted in part of the paper: **Private authorization codes: data minimization in card not present transactions** at the 2nd IEEE International Workshop on Programmable Zero-Knowledge Proofs for Decentralized Applications ([ZKDAPPS 2025](https://icbc2025.ieee-icbc.org/workshop/zkdapps))
