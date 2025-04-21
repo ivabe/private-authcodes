@@ -1,0 +1,37 @@
+attacker[passive]
+
+principal Prover[
+	knows private v
+]
+
+principal Verifier[
+	knows private v
+	knows private b
+	gb = G^b
+]
+Verifier -> Prover: [gb]
+
+principal Prover[
+	generates a
+	ga = G^a
+	k1 = gb^a
+	h = HASH(CONCAT(k1, v))
+	s = SIGN(a,h)
+]
+Prover -> Verifier: ga, h, s
+
+principal Verifier[
+	k2 = ga^b
+	h2 = HASH(CONCAT(k2, v))
+	_ = SIGNVERIF(ga, h, s)?
+	_ = ASSERT(h,h2)?
+]
+
+queries[
+	confidentiality? v
+	authentication? Prover -> Verifier: s
+	freshness? ga
+	freshness? h
+	freshness? h2
+	freshness? s
+]

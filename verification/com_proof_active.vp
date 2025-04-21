@@ -1,0 +1,44 @@
+attacker[active]
+
+principal Prover[
+	knows private v
+	knows private k
+	gk = G^k
+]
+Prover -> Verifier: [gk] // pre-authenticated long term key
+
+principal Verifier[
+	knows private v
+	knows private b
+	gb = G^b
+]
+Verifier -> Prover: [gb] // pre-authenticated long term key
+
+principal Prover[
+	generates a
+	ga = G^a
+	k1 = gb^a
+	h = HASH(CONCAT(k1, v))
+	s1 = SIGN(k,ga) // sign ephemeral key with long term key
+	s2 = SIGN(a,h)
+	//s2 = SIGN(k,h)
+]
+Prover -> Verifier: ga, h, s1, s2
+
+principal Verifier[
+	_ = SIGNVERIF(gk, ga, s1)?
+	_ = SIGNVERIF(ga, h, s2)?
+	k2 = ga^b
+	h2 = HASH(CONCAT(k2, v))
+	_ = ASSERT(h,h2)?
+]
+
+queries[
+	confidentiality? v
+	authentication? Prover -> Verifier: ga
+	//authentication? Prover -> Verifier: s1
+	freshness? ga
+	freshness? h
+	freshness? s1
+	freshness? s2
+]
